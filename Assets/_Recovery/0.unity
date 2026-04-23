@@ -276,10 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAi
   speed: 3
   rotationSpeed: 5
-  obstacleCheckDistance: 2.5
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  obstacleDistance: 1.5
 --- !u!1 &1174191571
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,15 +407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf87937107208274c97457d950983cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 10
+  moveSpeed: 4
   jumpForce: 5
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  MaxEnergy: 100
-  sprintKey: 304
-  sprintSpeedMultiplier: 1.5
-  sprintEnergyCost: 15
 --- !u!54 &1647526157
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -647,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7904d975f953444837fbb05c395a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  sensitivity: 4
+  senitivity: 2
 --- !u!23 &153097869911341907
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -709,7 +702,7 @@ GameObject:
   - component: {fileID: 8807305282982953246}
   - component: {fileID: 1206312706534594709}
   - component: {fileID: 7290485053398153056}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PrototypeMap_Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +785,7 @@ GameObject:
   - component: {fileID: 7384385339639920196}
   - component: {fileID: 5307016574351955469}
   - component: {fileID: 7384385339639920197}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PrototypeMap_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -908,7 +901,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4115389852940693947}
-  m_Material: {fileID: 13400000, guid: 4a868a7bd5f4f1ce989d1d7d954fc86f, type: 2}
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -992,7 +985,7 @@ GameObject:
   - component: {fileID: 6958132568639269271}
   - component: {fileID: 153097869911341907}
   - component: {fileID: 9118083071235915915}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PrototypeMap_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
