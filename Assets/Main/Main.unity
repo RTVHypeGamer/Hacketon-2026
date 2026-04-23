@@ -253,7 +253,11 @@ MonoBehaviour:
   jumpForce: 5
   groundMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
+  MaxEnergy: 100
+  sprintKey: 304
+  sprintSpeedMultiplier: 1.5
+  sprintEnergyCost: 15
 --- !u!54 &1647526157
 Rigidbody:
   m_ObjectHideFlags: 0
