@@ -276,10 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAi
   speed: 3
   rotationSpeed: 5
-  obstacleCheckDistance: 2.5
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  obstacleDistance: 1.5
 --- !u!1 &1174191571
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +702,7 @@ GameObject:
   - component: {fileID: 8807305282982953246}
   - component: {fileID: 1206312706534594709}
   - component: {fileID: 7290485053398153056}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PrototypeMap_Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +785,7 @@ GameObject:
   - component: {fileID: 7384385339639920196}
   - component: {fileID: 5307016574351955469}
   - component: {fileID: 7384385339639920197}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: PrototypeMap_Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}

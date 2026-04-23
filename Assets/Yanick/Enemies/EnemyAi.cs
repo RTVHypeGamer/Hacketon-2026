@@ -1,77 +1,97 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyAi : MonoBehaviour
+public class EnemyAI : MonoBehaviour
 {
-    public float speed = 3f;
-    public float rotationSpeed = 5f;
-    public float obstacleDistance = 1.5f;
+    public Transform player;
 
-    private Transform player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Movement")]
+    public float speed = 4f;
+    public float rotationSpeed = 6f;
+    public float detectionRange = 20000f;
+
+    [Header("Obstacle Avoidance")]
+    public float avoidDistance = 2f;
+    public float avoidStrength = 5f;
+    public LayerMask obstacleMask;
+
+    Vector3 currentVelocity;
+
     void Start()
     {
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-
-        if (playerObj != null)
+        if (player == null)
         {
-            player = playerObj.transform;
-        }
-        else
-        {
-            Debug.LogWarning("Player not found!");
+            player = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player == null) return;
 
-        MoveTowardsPlayer();
-    }
+        float distance = Vector3.Distance(transform.position, player.position);
 
-    void MoveTowardsPlayer()
-    {
-        Vector3 direction = (player.position - transform.position).normalized;
-
-        if (Physics.Raycast(transform.position, transform.forward, obstacleDistance))
+        if (distance <= detectionRange)
         {
-            AvoidObstacle();
-        }
-
-        else
-        {
-            RotateTowards(direction);
-            MoveForward();
+            MoveToPlayer();
         }
     }
 
-    void RotateTowards(Vector3 direction)
+    void MoveToPlayer()
     {
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            targetRotation,
-            rotationSpeed * Time.deltaTime
-        );
+        Vector3 directionToPlayer =
+            (player.position - transform.position).normalized;
 
-    }
+        Vector3 avoidance = CalculateAvoidance();
 
-    void MoveForward()
-    {
-        transform.position += transform.forward * speed * Time.deltaTime;
-    }
+        Vector3 finalDirection =
+            (directionToPlayer + avoidance).normalized;
 
-    void AvoidObstacle()
-    {
-        transform.Rotate(Vector3.up * 120f * Time.deltaTime);
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        // Smooth rotation
+        if (finalDirection != Vector3.zero)
         {
-            Debug.Log("Enemy Hit!");
+            Quaternion targetRotation =
+                Quaternion.LookRotation(finalDirection);
+
+            transform.rotation =
+                Quaternion.Slerp(
+                    transform.rotation,
+                    targetRotation,
+                    rotationSpeed * Time.deltaTime
+                );
         }
+
+        // Smooth movement
+        transform.position +=
+            transform.forward * speed * Time.deltaTime;
+    }
+
+    Vector3 CalculateAvoidance()
+    {
+        Vector3 avoidance = Vector3.zero;
+
+        Vector3[] directions =
+        {
+            transform.forward,
+            Quaternion.AngleAxis(30, Vector3.up) * transform.forward,
+            Quaternion.AngleAxis(-30, Vector3.up) * transform.forward
+        };
+
+        foreach (Vector3 dir in directions)
+        {
+            Ray ray = new Ray(transform.position, dir);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, avoidDistance, obstacleMask))
+            {
+                Vector3 awayFromObstacle =
+                    transform.position - hit.point;
+
+                avoidance +=
+                    awayFromObstacle.normalized
+                    * avoidStrength
+                    * (avoidDistance - hit.distance);
+            }
+        }
+
+        return avoidance;
     }
 }
