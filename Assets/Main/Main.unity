@@ -411,7 +411,7 @@ MonoBehaviour:
   jumpForce: 5
   groundMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   MaxEnergy: 100
   sprintKey: 304
   sprintSpeedMultiplier: 1.5
@@ -905,7 +905,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4115389852940693947}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 4a868a7bd5f4f1ce989d1d7d954fc86f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 6958132568639269271}
   - component: {fileID: 153097869911341907}
   - component: {fileID: 9118083071235915915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PrototypeMap_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
