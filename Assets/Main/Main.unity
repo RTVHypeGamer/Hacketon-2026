@@ -407,11 +407,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf87937107208274c97457d950983cf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 4
+  moveSpeed: 10
   jumpForce: 5
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 4294967295
 --- !u!54 &1647526157
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7904d975f953444837fbb05c395a21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  senitivity: 2
+  sensitivity: 4
 --- !u!23 &153097869911341907
 MeshRenderer:
   m_ObjectHideFlags: 0
