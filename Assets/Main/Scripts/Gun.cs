@@ -5,8 +5,8 @@ public class Gun : MonoBehaviour
     public float damage = 10f;
     public float range = 30f;
     public Camera Maincamera;
-    public EnemyAI[] EnemyAi;
-    EnemyAI target;
+    public EnemyDeath[] EnemyDeath;
+    EnemyDeath target;
 
     // public ParticleSystem Muzzelflash;
     // public GameObject Flareeffect;
@@ -28,11 +28,11 @@ public class Gun : MonoBehaviour
            if (Physics.Raycast(Maincamera.transform.position, Maincamera.transform.forward, out RaycastHit hit, range))
             {
                 Debug.Log(hit.transform.name);
-                target = hit.transform.GetComponent<EnemyAI>();
-                if(hit.transform.GetComponent<EnemyAI>())
+                target = hit.transform.GetComponent<EnemyDeath>();
+                if(hit.transform.GetComponent<EnemyDeath>())
                 
                 if(target != null){
-                    
+                        target.TakeDamage(100);
                 }
             }
         }
