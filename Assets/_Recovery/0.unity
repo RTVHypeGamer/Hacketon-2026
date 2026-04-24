@@ -222,7 +222,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9118083071235915914}
+  m_GameObject: {fileID: 1647526155}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -626,7 +626,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents: []staying 
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -672,7 +672,7 @@ MeshRenderer:
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
+  m_AutoUVMaxAngle: 89staying 
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
@@ -697,7 +697,7 @@ Rigidbody:
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ExcludeLayers:
+  m_ExcludeLayers:staying 
     serializedVersion: 2
     m_Bits: 0
   m_ImplicitCom: 1
@@ -812,3 +812,5 @@ SceneRoots:
   - {fileID: 1174191573}
   - {fileID: 7475276231115817513}
   - {fileID: 1461936547264610148}
+  - {fileID: 1647526161}
+  - {fileID: 910977789}

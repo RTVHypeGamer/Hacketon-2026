@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float senitivity = 2f;
+    public float sensitivity = 8f;
     private float xRotation = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,8 +17,8 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * senitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * senitivity;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
